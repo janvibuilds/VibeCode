@@ -12,24 +12,12 @@
           "value": "credentialless"
         }
       ]
-    },
-    {
-      "source": "/api/auth/(.*)",
-      "headers": [
-        {
-          "key": "Cross-Origin-Opener-Policy",
-          "value": "same-origin"
-        },
-        {
-          "key": "Cross-Origin-Embedder-Policy",
-          "value": "credentialless"
-        }
-      ]
     }
   ],
   "functions": {
     "app/api/**/*.ts": {
       "maxDuration": 30
     }
-  }
+  },
+  "installCommand": "npm install --legacy-peer-deps"
 }
