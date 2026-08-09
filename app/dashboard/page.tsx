@@ -24,7 +24,6 @@ const DashboardMainPage = async () => {
         {playgrounds && playgrounds.length === 0 ? (
           <EmptyState />
         ) : (
-          // @ts-expect-error - ProjectTable props mismatch
           <ProjectTable
             projects={playgrounds || []}
             onDeleteProject={deleteProjectById}
