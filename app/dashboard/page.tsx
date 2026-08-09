@@ -14,14 +14,13 @@ const EmptyState = () => (
 
 const DashboardMainPage = async () => {
   const playgrounds = await getAllPlaygroundForUser();
-  console.log(playgrounds);
   return (
-    <div className="flex flex-col justify-start items-center min-h-screen mx-auto max-w-7xl px-4 py-10">
+    <div className="flex flex-col justify-start items-center min-h-screen mx-auto max-w-7xl px-4 md:px-8 py-10 w-full overflow-x-hidden">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
         <AddNewButton />
         <AddRepo />
       </div>
-      <div className="mt-10 flex flex-col justify-center items-center w-full">
+      <div className="mt-10 flex flex-col justify-center items-center w-full overflow-x-auto">
         {playgrounds && playgrounds.length === 0 ? (
           <EmptyState />
         ) : (

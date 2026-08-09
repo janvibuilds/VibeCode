@@ -18,6 +18,7 @@
 - ⚙️ **WebContainers Integration** – Instantly run frontend/backend apps right in the browser.
 - 💻 **Terminal with xterm.js** – Fully interactive embedded terminal experience.
 - 🤖 **AI Chat Assistant** – Share files with the AI and get help, refactors, or explanations.
+- 📦 **GitHub Import** – Import any public GitHub repository directly into the editor.
 
 ---
 
@@ -44,7 +45,7 @@
 ```bash
 git clone https://github.com/your-username/vibecode-editor.git
 cd vibecode-editor
-````
+```
 
 ### 2. Install Dependencies
 
@@ -97,13 +98,32 @@ Visit `http://localhost:3000` in your browser.
 ```
 .
 ├── app/                     # App Router-based pages & routes
+│   ├── (auth)/              # Authentication pages
+│   ├── (root)/              # Landing page
+│   ├── api/                 # API routes
+│   ├── dashboard/           # Dashboard page
+│   ├── playground/          # Code playground
+│   └── settings/            # Settings page
 ├── components/              # UI components
-├── editor/                 # Monaco, File Explorer, Terminal
+│   ├── modal/               # Modal dialogs
+│   ├── providers/           # Context providers
+│   └── ui/                  # ShadCN UI components
+├── features/                # Feature modules
+│   ├── auth/                # Authentication logic
+│   ├── dashboard/           # Dashboard components
+│   ├── playground/          # Playground logic & components
+│   └── webcontainers/       # WebContainer integration
+├── hooks/                   # Custom React hooks
 ├── lib/                     # Utility functions
-├── public/                  # Static files (incl. thumbnail)
-├── utils/                   # AI helpers, WebContainer logic
+├── prisma/                  # Database schema
+├── public/                  # Static assets
+├── vibecode-starters/       # Starter templates
 ├── .env.example             # Example env vars
-└── README.md
+├── .gitignore               # Git ignore rules
+├── LICENSE                  # MIT License
+├── CONTRIBUTING.md          # Contributing guidelines
+├── CODE_OF_CONDUCT.md       # Code of conduct
+└── README.md                # Project documentation
 ```
 
 ---
@@ -112,22 +132,23 @@ Visit `http://localhost:3000` in your browser.
 
 * `Ctrl + Space` or `Double Enter`: Trigger AI suggestions
 * `Tab`: Accept AI suggestion
-* `/`: Open Command Palette (if implemented)
+* `Ctrl + S`: Save current file
+* `Ctrl + Shift + S`: Save all files
 
 ---
 
-## ✅ Roadmap
+## ✅ What's Included
 
-* [x] Google & GitHub Auth via NextAuth
-* [x] Multiple stack templates
-* [x] Monaco Editor + AI
-* [x] WebContainers + terminal
-* [x] AI chat for code assistance
-* [ ] GitHub repo import/export
-* [ ] Save/load playground from DB
-* [ ] Real-time collaboration
-* [ ] Plugin system for templates/tools
-* [ ] One-click deploy via Vercel/Netlify
+- ✅ Google & GitHub OAuth authentication
+- ✅ 6 project templates (React, Next.js, Express, Vue, Hono, Angular)
+- ✅ Monaco Editor with AI autocomplete
+- ✅ WebContainers for in-browser code execution
+- ✅ Interactive terminal with xterm.js
+- ✅ AI chat assistant powered by Ollama
+- ✅ GitHub repository import
+- ✅ Cloud storage for playgrounds
+- ✅ Dark/Light theme support
+- ✅ Responsive design
 
 ---
 
@@ -137,13 +158,22 @@ This project is licensed under the [MIT License](LICENSE).
 
 ---
 
+## 🤝 Contributing
+
+Contributions are welcome! Please read our [Contributing Guide](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
+
+---
+
 ## 🙏 Acknowledgements
 
-* [Monaco Editor](https://microsoft.github.io/monaco-editor/)
-* [Ollama](https://ollama.com/) – for offline LLMs
-* [WebContainers](https://webcontainers.io/)
-* [xterm.js](https://xtermjs.org/)
-* [NextAuth.js](https://next-auth.js.org/)
+* [Monaco Editor](https://microsoft.github.io/monaco-editor/) - Code editor
+* [Ollama](https://ollama.com/) - Local LLMs
+* [WebContainers](https://webcontainers.io/) - Browser-based runtime
+* [xterm.js](https://xtermjs.org/) - Terminal emulator
+* [NextAuth.js](https://next-auth.js.org/) - Authentication
+* [ShadCN UI](https://ui.shadcn.com/) - UI components
+* [Tailwind CSS](https://tailwindcss.com/) - Styling
+* [Prisma](https://www.prisma.io/) - Database ORM
+* [MongoDB](https://www.mongodb.com/) - Database
 
-```
 

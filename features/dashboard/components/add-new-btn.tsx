@@ -22,21 +22,26 @@ const AddNewButton = () => {
     template: "REACT" | "NEXTJS" | "EXPRESS" | "VUE" | "HONO" | "ANGULAR";
     description?: string;
   }) => {
-    setSelectedTemplate(data)
-    const res = await createPlayground(data);
-    toast("Playground created successfully");
-    // Here you would typically handle the creation of a new playground
-    // with the selected template data
-    console.log("Creating new playground:", data)
-    setIsModalOpen(false)
-    router.push(`/playground/${res?.id}`)
+    try {
+      setSelectedTemplate(data)
+      const res = await createPlayground(data);
+      if (!res?.id) {
+        toast.error("Failed to create playground");
+        return;
+      }
+      toast.success("Playground created successfully");
+      setIsModalOpen(false)
+      router.push(`/playground/${res.id}`)
+    } catch (error) {
+      toast.error("Failed to create playground");
+    }
   }
 
   return (
     <>
       <div
         onClick={() => setIsModalOpen(true)}
-        className="group px-6 py-6 flex flex-row justify-between items-center border rounded-lg bg-muted cursor-pointer 
+        className="group px-6 py-6 flex flex-row justify-between items-center border rounded-lg bg-background relative z-10 cursor-pointer 
         transition-all duration-300 ease-in-out
         hover:bg-background hover:border-[#E93F3F] hover:scale-[1.02]
         shadow-[0_2px_10px_rgba(0,0,0,0.08)]

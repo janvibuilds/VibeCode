@@ -175,29 +175,29 @@ export default function ProjectTable({
 
   return (
     <>
-      <div className="border rounded-lg overflow-hidden">
-        <Table>
+      <div className="border rounded-lg overflow-hidden w-full">
+        <Table className="w-full">
           <TableHeader>
             <TableRow>
-              <TableHead>Project</TableHead>
-              <TableHead>Template</TableHead>
-              <TableHead>Created</TableHead>
-              <TableHead>User</TableHead>
-              <TableHead className="w-[50px]">Actions</TableHead>
+              <TableHead className="w-[40%]">Project</TableHead>
+              <TableHead className="w-[15%]">Template</TableHead>
+              <TableHead className="w-[15%]">Created</TableHead>
+              <TableHead className="w-[15%]">User</TableHead>
+              <TableHead className="w-[15%]">Actions</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {projects.map((project) => (
               <TableRow key={project.id}>
-                <TableCell className="font-medium">
-                  <div className="flex flex-col">
+                <TableCell className="font-medium max-w-0">
+                  <div className="flex flex-col min-w-0">
                     <Link
                       href={`/playground/${project.id}`}
                       className="hover:underline"
                     >
-                      <span className="font-semibold">{project.title}</span>
+                      <span className="font-semibold block truncate">{project.title}</span>
                     </Link>
-                    <span className="text-sm text-gray-500 line-clamp-1">
+                    <span className="text-sm text-gray-500 truncate block">
                       {project.description}
                     </span>
                   </div>
@@ -214,8 +214,8 @@ export default function ProjectTable({
                   {format(new Date(project.createdAt), "MMM d, yyyy")}
                 </TableCell>
                 <TableCell>
-                  <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-full overflow-hidden">
+                  <div className="flex items-center gap-2 min-w-0">
+                    <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0">
                       <Image
                         src={project.user.image || "/placeholder.svg"}
                         alt={project.user.name}
@@ -224,7 +224,7 @@ export default function ProjectTable({
                         className="object-cover"
                       />
                     </div>
-                    <span className="text-sm">{project.user.name}</span>
+                    <span className="text-sm truncate">{project.user.name}</span>
                   </div>
                 </TableCell>
                 <TableCell>
