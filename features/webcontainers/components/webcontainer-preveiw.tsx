@@ -4,8 +4,13 @@ import React, { useRef } from "react";
 import type { TemplateFolder } from "@/features/playground/libs/path-to-json";
 import { CheckCircle, Loader2, XCircle } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
-import TerminalComponent from "./terminal";
+import dynamic from "next/dynamic";
 import { WebContainer } from "@webcontainer/api";
+
+const TerminalComponent = dynamic(
+  () => import("./terminal"),
+  { ssr: false }
+);
 
 interface WebContainerPreviewProps {
   templateData: TemplateFolder;

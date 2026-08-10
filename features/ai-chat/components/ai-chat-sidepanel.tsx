@@ -1145,12 +1145,14 @@ export const AIChatSidePanel: React.FC<AIChatSidePanelProps> = ({
                         <ReactMarkdown
                           remarkPlugins={[remarkGfm, remarkMath]}
                           rehypePlugins={[rehypeKatex]}
-                          components={{
+                            components={{
                             code: ({
                               children,
                               className,
-                              inline: _inline,
-                            }) => (
+                              ...props
+                            }) => {
+                              const { inline: _inline, ...restProps } = props as any;
+                              return (
                               <EnhancedCodeBlock
                                 className={className}
                                 inline={_inline as boolean}
@@ -1164,7 +1166,8 @@ export const AIChatSidePanel: React.FC<AIChatSidePanelProps> = ({
                               >
                                 {String(children)}
                               </EnhancedCodeBlock>
-                            ),
+                              );
+                            },
                           }}
                         >
                           {msg.content}
